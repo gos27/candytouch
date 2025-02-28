@@ -1,0 +1,522 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*----------------------------------------------Reset---------------------------------------------- */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button,
+textarea {
+    font: inherit;
+}
+
+/*----------------------------------------------Variables---------------------------------------------- */
+:root {
+    /* Fonts */
+    --FF-HEADING: "Noto Sans";
+    --FF: "Gowun Batang";
+    --FS: clamp(1rem, 2.2vh, 1.5rem);
+
+    /* Colors */
+    --BGCOLOR-FADE: rgb(208, 226, 235);
+    --BGCOLOR: lightblue;
+    --BGIMAGE: linear-gradient(to bottom, var(--BGCOLOR), var(--BGCOLOR-FADE));
+    --BODY-BGCOLOR: #fff;
+    --BORDER-COLOR: #333;
+    --BUTTON-COLOR: #fff;
+    --FONT-COLOR: #000;
+    --HEADER-BGCOLOR: #000;
+    --HEADER-COLOR: #fff;
+    --HERO-BGCOLOR: rgba(51, 178, 51, 0.75);
+    --HERO-COLOR: #fff;
+    --HIGHLIGHT-COLOR: rgb(21, 142, 54);
+    --LINK-ACTIVE: rgb(208, 226, 235);
+    --LINK-COLOR: #000;
+    --LINK-HOVER: hsla(0, 0%, 0%, 0.6);
+    --NAV-BGCOLOR: #fff;
+
+    /* Borders */
+    --BORDER: 1px solid var(--BORDER-COLOR);
+    --CONTACT-BR: 15px;
+
+    /* Padding */
+    --PADDING-TB: 0.25em;
+    --PADDING-SIZE: 2.5%;
+
+    /* Margin */
+    --MARGIN: clamp(1em, 2.5vh, 1.5em) 0;
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --BGCOLOR-FADE: gray;
+        --BGCOLOR: #000;
+        --BODY-BGCOLOR: #333;
+        --BORDER-COLOR: whitesmoke;
+        --BUTTON-COLOR: #000;
+        --FONT-COLOR: whitesmoke;
+        --HEADER-COLOR: whitesmoke;
+        --HERO-COLOR: #333;
+        --HIGHLIGHT-COLOR: whitesmoke;
+        --LINK-ACTIVE: rgb(60, 60, 121);
+        --LINK-COLOR: whitesmoke;
+        --LINK-HOVER: rgb(173, 216, 230);
+        --NAV-BGCOLOR: rgb(20, 20, 20);
+    }
+}
+
+
+
+/*----------------------------------------------Utility Classes---------------------------------------------- */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+/*----------------------------------------------General Styles Classes---------------------------------------------- */
+html {
+    background-color: var(--BGCOLOR);
+    background-image: var(--BGIMAGE);
+    font-family: var(--FF);
+    font-size: var(--FS);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--BODY-BGCOLOR);
+    border-left: var(--BORDER);
+    border-right: var(--BORDER);
+    box-shadow: 0 0 10px var(--BORDER-COLOR);
+    color: var(--FONT-COLOR);
+    margin: 0 auto;
+    max-width: 800px;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--FF-HEADING);
+    letter-spacing: 0.1em;
+}
+
+h2,
+h3 {
+    color: var(--HIGHLIGHT-COLOR);
+    margin-bottom: 1em;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a:any-link {
+    color: var(--LINK-COLOR);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--LINK-HOVER);
+    text-decoration: underline;
+}
+
+a::active {
+    color: red;
+}
+
+/*---------------------------------------------- Header Styles ---------------------------------------------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header__h1 {
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    padding: var(--PADDING-TB) var(--PADDING-SIZE);
+    text-align: center;
+}
+
+.header__nav {
+    background-color: var(--NAV-BGCOLOR);
+    border-bottom: var(--BORDER);
+    box-shadow: 0 6px 5px -5px var(--BORDER-COLOR);
+    font-weight: bold;
+}
+
+.header__ul {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: var(--PADDING-TB) var(--PADDING-SIZE);
+}
+
+/*---------------------------------------------- Hero Styles ---------------------------------------------- */
+.hero {
+    position: relative;
+}
+
+.hero__h2 {
+    animation: showWelcome 0.5s ease-in-out 1s forwards;
+    background-color: var(--HERO-BGCOLOR);
+    color: var(--HERO-COLOR);
+    left: 20px;
+    letter-spacing: 0.1rem;
+    margin: 0;
+    padding: 0.25em 0.5em;
+    position: absolute;
+    text-shadow: 2px 2px 5px var(--BORDER-COLOR);
+    top: -100px;
+}
+
+@keyframes showWelcome {
+    0% {
+        top: -20px;
+        transform: skew(0deg, -5deg) scaleY(0);
+    }
+
+    80% {
+        top: 30px;
+        transform: skew(10deg, -5deg) scaleY(1.2);
+    }
+
+    100% {
+        top: 20px;
+        transform: skew(-10deg, -5deg) scaleY(1);
+    }
+}
+
+/*---------------------------------------------- Main Styles ---------------------------------------------- */
+.main {
+    padding: var(--PADDING-TB) var(--PADDING-SIZE);
+}
+
+.main__section {
+    margin: var(--MARGIN);
+    scroll-margin-top: 6.5rem;
+}
+
+.main__section:first-child {
+    margin-top: 1em;
+}
+
+.main__section:last-child {
+    min-height: calc(100vh - 20rem);
+}
+
+
+
+/*---------------------------------------------- Carousel2 without indicators Styles ---------------------------------------------- */
+.carousel {
+    overflow: hidden;
+    max-width: 800px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.carousel .carousel__item,
+.carousel .carousel__item--hidden {
+    display: none;
+}
+
+.carousel .carousel__item img {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+}
+
+.carousel .carousel__item--visible {
+    display: block;
+    animation: forwards 1s;
+}
+
+.carousel .carousel__buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.carousel .carousel__buttons button {
+    border-radius: 50px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.carousel .carousel__buttons button#carousel__button--prev {
+    margin-left: 20px;
+}
+
+.carousel .carousel__buttons button#carousel__button--next {
+    margin-right: 20px;
+}
+
+@keyframes fadeVisibility {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: opacity linear;
+    }
+}
+
+/*---------------------------------------------- About Styles ---------------------------------------------- */
+.about__trivia {
+    margin: var(--MARGIN);
+}
+
+.about__trivia-answer {
+    margin-top: 1em;
+}
+
+/*---------------------------------------------- Contact Styles ---------------------------------------------- */
+.contact__h2 {
+    margin: 0;
+}
+
+.contact__fieldset {
+    border: none;
+}
+
+.contact__p {
+    margin: 1em 0;
+}
+
+/*.contact__label {
+    display: block;
+    font-weight: bold;
+}
+
+.contact__input,
+.contact__textarea {
+    border-radius: var(--CONTACT-BR);
+    border-width: 2px;
+    padding: 0.5em;
+    width: 100%;
+}*/
+
+.contact__article-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact__btn {
+    background-color: var(--HIGHLIGHT-COLOR);
+    border-radius: var(--CONTACT-BR);
+    color: var(--BUTTON-COLOR);
+    font-weight: bolder;
+    padding: 0.5em;
+    width: 100%;
+    cursor: pointer;
+}
+
+.contact__btn:hover{
+    background: rgba(51, 178, 51, 0.8);
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+     font-size: 12px; 
+    padding: 10px;
+    width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input,
+.input-control.success textarea {
+    border-color: #09c372;
+}
+
+.input-control.error input,
+.input-control.error textarea {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+
+.error {
+    font-size: 12px;
+}
+
+/*---------------------------------------------- Service Styles ---------------------------------------------- */
+thead,
+tbody,
+tfoot,
+tr {
+    display: contents;
+}
+
+.menu__container {
+    display: grid;
+    gap: 0.1em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "hd1 hd2 hd3"
+        "fc fc1 fc1p"
+        "fc fc2 fc2p"
+        "fc fc3 fc3p"
+        "gl gl1 gl1p"
+        "gl gl2 gl2p"
+        "gl gl3 gl3p"
+        "lh lh lh"
+    ;
+    margin-bottom: 1em;
+}
+
+.menu__fc {
+    grid-area: fc;
+}
+
+.menu__gl {
+    grid-area: gl;
+}
+
+.menu__lh {
+    grid-area: lh;
+}
+
+.menu__fc,
+.menu__gl,
+.menu__lh,
+.menu__header {
+    color: var(--HIGHLIGHT-COLOR);
+    display: grid;
+    font-weight: bold;
+    height: 100%;
+    place-content: center;
+}
+
+
+
+.menu__header,
+.menu__item {
+    border: medium ridge var(--BORDER-COLOR);
+    padding: 1em;
+    width: 100%;
+}
+
+.menu__item {
+    display: grid;
+    place-content: center;
+}
+
+thead th:first-child {
+    border-top-left-radius: var(--CONTACT-BR);
+}
+
+thead th:last-child {
+    border-top-right-radius: var(--CONTACT-BR);
+}
+
+tfoot td {
+    border-bottom-left-radius: var(--CONTACT-BR);
+    border-bottom-right-radius: var(--CONTACT-BR);
+}
+
+
+
+/*---------------------------------------------- Footer Styles ---------------------------------------------- */
+.footer {
+    background-color: var(--HEADER-BGCOLOR);
+    bottom: 0;
+    color: var(--HEADER-COLOR);
+    padding: var(--PADDING-TB) var(--PADDING-SIZE);
+    position: sticky;
+    text-align: center;
+}
+
+
+
+
+
+
+@media screen and (min-width: 576px) {
+    .header__h1::before {
+        content: '💄😀 ';
+    }
+
+    .header__h1::after {
+        content: ' 😀💄';
+    }
+
+    .menu__header,
+    .menu__fc,
+    .menu__gl,
+    .menu__lh {
+        font-size: 125%;
+    }
+
+    .menu__item {
+        font-size: 110%;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .contact__article-name {
+        display: block;
+    }
+
+    .menu__header,
+    .menu__fc,
+    .menu__gl,
+    .menu__lh {
+        font-size: 90%;
+    }
+
+    .menu__item {
+        font-size: 70%;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+}

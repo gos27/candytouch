@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Abolade GOS" />
+  <meta name="description" />
+  <title>Contact CTM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__h1">Candy's Touch</h1>
+    <nav class="header__nav">
+      <ul class="header__ul">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="service.html">Services</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <figure>
+      <img src="image/contact.jpg" alt="Candy's Touch" title="Candy's Image" loading="lazy" width="923" height="533" />
+      <figcaption class="offscreen">Candy's Touch</figcaption>
+    </figure>
+  </section>
+  <main class="main">
+    <section class="main__section">
+      <h2>Our Office Address</h2>
+      <address>
+        Shop 31 Imperial shopping complex,
+        <br />
+        Offa, Kwara State.
+        <br />
+        Email: <a href="mailto:shuaibsikirat1999@gmail.com ">shuaibsikirat1999@gmail.com </a>
+        <br />
+        Phone: <a href="tel+2349158567691">09158567691</a>
+      </address>
+    </section>
+    <hr>
+    <section class="main__section contact">
+      <h2 class="contact__h2">Our Contact Form</h2>
+      <form action="" class="contact__form" id="form">
+        <fieldset class="contact__fieldset">
+          <legend class="offscreen">Send Us A Message</legend>
+          <article class="contact__article-name">
+            <p class="contact__p input-control ">
+              <label class="contact__label" for="fname">FirstName: </label>
+              <input class="contact__input" type="text" name="fname" id="fname" placeholder="Enter First Name"
+                autocomplete="on" autofocus />
+              <span class="error"></span>
+            </p>
+            <p class="contact__p input-control ">
+              <label class="contact__label" for="lname">Last Name: </label>
+              <input class="contact__input" type="text" name="lname" id="lname" placeholder="Enter Last Name"
+                autocomplete="on" />
+              <span class="error"></span>
+            </p>
+          </article>
+          <p class="contact__p input-control">
+            <label class="contact__label" for="phone">Phone Number: </label>
+            <input class="contact__input" type="text" name="phone" id="phone" placeholder="Enter Your Phone"
+              autocomplete="on" />
+            <span class="error"></span>
+          </p>
+          <p class="contact__p input-control">
+            <label class="contact__label" for="email">Email: </label>
+            <input class="contact__input" type="email" name="email" id="email" placeholder="Enter Your E-mail"
+              autocomplete="on" />
+            <span class="error"></span>
+          </p>
+          <p class="contact__p input-control">
+            <label class="contact__label" for="message">Your Message Here: </label>
+            <br />
+            <textarea class="contact__textarea" name="message" id="message" rows="10" cols="30"
+              placeholder="Enter your message here!!!"></textarea>
+            <span class="error"></span>
+          </p>
+        </fieldset>
+        <button class="contact__btn " type="submit" onclick="sendMessage">Send US A Message</button>
+      </form>
+    </section>
+  </main>
+  <script>
+    // Sign Up Page End
+
+    function register() {
+      const fname = document.getElementById("fname").value;
+      const lname = document.getElementById("lname").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const password = document.getElementById("password").value;
+      console.log("Fisrt Name is: " + fname + "\n" + "Last Name is: " + lname + "\n" + "Email is:" + email + "\n" + "Phone Number is: " + phone + "\n" + "The Password is: " + password);
+
+    }
+
+  </script>
+  <footer class="footer">
+    <p>
+      <span class="nowrap">Copyright &copy; <time id="year" datetime=""></time></span>
+      <span class="nowrap">Abolade GOS</span>
+    </p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+
+</html>
